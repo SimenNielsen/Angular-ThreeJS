@@ -1,0 +1,37 @@
+{
+    "sites": [
+        {
+            "id": 0,
+            "name": "Skandi Acergy",
+            "country": "no",
+            "history": [
+                {
+                    "x": 5.19357,
+                    "y": 60.29681
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Skandi Iceman",
+            "country": "no",
+            "history": [
+                {
+                    "x": 1.268328,
+                    "y": 57.60372
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Skandi Acu",
+            "country": "br",
+            "history": [
+                {
+                    "x": -42.82681,
+                    "y": -25.55355
+                }
+            ]
+        }
+    ]
+}
