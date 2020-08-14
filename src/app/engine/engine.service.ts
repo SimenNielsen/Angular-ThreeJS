@@ -14,9 +14,7 @@ export class EngineService implements OnDestroy {
   private camera: THREE.PerspectiveCamera;
   private controls: OrbitControls;
   public scene: THREE.Scene;
-  private light: THREE.AmbientLight;
-  private sunlight: THREE.DirectionalLight;
-  private impactAnimation: any;
+  private blades : THREE.Object3D;
 
   private frameId: number = null;
 
@@ -57,7 +55,7 @@ export class EngineService implements OnDestroy {
     }
     this.createObject(thrusterInfo);
 
-    var ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
+    var ambientLight = new THREE.AmbientLight( 0x404040, 2 ); // soft white light
     ambientLight.position.y = 5;
     this.scene.add( ambientLight );
 
@@ -74,6 +72,8 @@ export class EngineService implements OnDestroy {
     // to be from the globe.
     this.camera.position.z = -8;
   }
+  rad = 0;
+  radIncrement = 0.1;
   public animate(): void {
     // We have to run this outside angular zones,
     // because it could trigger heavy changeDetection cycles.
@@ -99,6 +99,8 @@ export class EngineService implements OnDestroy {
       this.render();
     });
     this.renderer.render(this.scene, this.camera);
+    this.rad=+0.1;
+    this.blades.rotateX(this.rad);
   }
 
   public resize(): void {
@@ -121,6 +123,12 @@ export class EngineService implements OnDestroy {
         objLoader.load(
             object_info.OBJ_path,
             obj => {
+              for(let i = 0; i < obj.children.length; i++){
+                if(obj.children[i].name === "Part__Feature182"){
+                  this.blades = obj.children[i]
+                  break;
+                }
+              }
               console.log(obj.children);
               this.scene.add(obj);
             },
