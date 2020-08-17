@@ -34,7 +34,6 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "src/assets/Tween.min.js"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

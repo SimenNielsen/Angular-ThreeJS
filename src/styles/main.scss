@@ -12,8 +12,8 @@
  /*****************************************************
   * styles
   *****************************************************/
- html, body, app-root, app-game {
-   overflow: hidden;
+ html, body, app-root {
+   overflow: auto;
    width   : 100%;
    height  : 100%;
    margin  : 0;
@@ -26,29 +26,14 @@
  }
  
  .engine-wrapper{
-   position: relative;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   z-index: 0;
  
    #renderCanvas {
-     width   : 100%;
-     height  : 100%;
      touch-action: none;
+     max-width: 100%;
+     max-height: 850px;
    }
  
    #renderCanvas:focus {
      outline: none;
    }
  }
- 
- .ui-wrapper {
-   position: relative;
- 
-   * {
-     z-index: 10;
-   }
- }
- #earthDiv{top: 0; right: 0; bottom: 0; left: 0;
-  background-color: #000; position: absolute !important;}

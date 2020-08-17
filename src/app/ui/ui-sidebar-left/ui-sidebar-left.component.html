@@ -1,9 +1,10 @@
-<mat-sidenav #snav_left [mode]="'side'" fixedTopGap="56" opened="true" [disableClose]="'false'">
-	<mat-nav-list class="nav-list-container">
-		<button class="btn-close" (click)="snav_left.close()">
-			<mat-icon>cancel</mat-icon>
-		</button>
-		<br>
-		<p>Hellooooo</p>
+<mat-sidenav #snav_left [mode]="'side'" fixedTopGap="56" opened="true" [disableClose]="'false'" style="border: 0;">
+	<mat-nav-list>
+		<mat-card style="margin: 0 8px;">
+			<mat-card-content>
+			  	<h2>Speed</h2>
+				<mat-slider min="thrusterService.configuration.speedConfig.minSpeed" max="thrusterService.configuration.speedConfig.maxSpeed" step="thrusterService.configuration.speedConfig.stepSpeed" [(ngModel)]="thrusterService.configuration.speedConfig.value"></mat-slider>
+			</mat-card-content>
+		</mat-card>
 	</mat-nav-list>
 </mat-sidenav>

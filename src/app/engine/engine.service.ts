@@ -3,8 +3,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
 import { MeshStandardMaterial, AmbientLight, MeshBasicMaterial } from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
-import { ShaderService } from './shader.service';
-import { ObjectInfo } from './object-info';
+import { ShaderService } from './utils/services/shader.service';
+import { ThrusterService } from './utils/services/thruster.service';
+import { ObjectInfo } from './utils/object-info';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 
 @Injectable({ providedIn: 'root' })
@@ -21,7 +22,8 @@ export class EngineService implements OnDestroy {
   private impactRatio : { value: number } = { value: 0 }
   
 
-  public constructor(private ngZone: NgZone, private shaderService: ShaderService) {}
+  public constructor(private ngZone: NgZone, private shaderService: ShaderService, private thrusterService: ThrusterService) {
+  }
 
   public ngOnDestroy(): void {
     if (this.frameId != null) {
@@ -100,7 +102,8 @@ export class EngineService implements OnDestroy {
       this.render();
     });
     this.renderer.render(this.scene, this.camera);
-    this.rad=+0.1;
+    this.rad=+this.thrusterService.configuration.speedConfig.value;
+    console.log(this.thrusterService.configuration.speedConfig.value)
     this.blades.rotateX(this.rad);
   }
 

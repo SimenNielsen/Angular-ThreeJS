@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ThrusterService } from 'src/app/engine/utils/services/thruster.service';
 
 
 
@@ -9,16 +10,11 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./ui-sidebar-left.component.scss']
 })
 export class UiSidebarLeftComponent implements OnInit {
-  displayedColumns: string[] = ["name", "country"];
-  public constructor() {
+  public constructor(public thrusterService: ThrusterService) {
+    
   }
 
   public ngOnInit(): void {
 
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    //this.siteDataSource.filter = filterValue.trim().toLowerCase();
   }
 }
