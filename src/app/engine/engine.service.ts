@@ -36,12 +36,13 @@ export class EngineService implements OnDestroy {
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       alpha: true,    // transparent background
-      antialias: true // smooth edges
+      antialias: true, // smooth edges
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
     // create the scene
     this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0xffffff)
 
     this.camera = new THREE.PerspectiveCamera(
       45, window.innerWidth / window.innerHeight, 0.1, 1000
