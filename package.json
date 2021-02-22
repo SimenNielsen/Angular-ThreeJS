@@ -30,6 +30,7 @@
     "jquery": "^3.5.1",
     "rxjs": "~6.5.5",
     "three": "^0.118.3",
+    "three-fbx-loader": "^1.0.3",
     "three-object-mtl-loader": "^1.0.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

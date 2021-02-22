@@ -13,7 +13,7 @@ export class EngineComponent implements OnInit {
   public constructor(private engServ: EngineService) { }
 
   public ngOnInit(): void {
-    this.engServ.createScene(this.rendererCanvas);
+    this.engServ.initialize(this.rendererCanvas.nativeElement);
     this.engServ.animate();
   }
 
